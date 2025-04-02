@@ -15,10 +15,29 @@ body {
 
 /* Header styles updated */
 header {
-    background: #001220; /* Navy blue color matching the logo */
+    background: url("../images/logo/TDW-facebook-company_cover_v3.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
     color: white;
-    padding: 2rem 1rem;
+    padding: 0; /* Remove padding to allow full coverage */
     text-align: center;
+}
+
+/* Add overlay to ensure text readability */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 18, 32, 0.5); /* Semi-transparent overlay */
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
 }
 
 .header-logo-container {
@@ -26,36 +45,14 @@ header {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    max-width: 100%;
-    height: 250px; /* Adjust height to match your Facebook cover image aspect ratio */
-    background-image: url("../images/logo/TDW-facebook-company_cover_v3.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
+    padding: 3rem 1rem; /* Add padding here instead of on the header */
 }
 
 .header-logo {
-    width: 150px; /* Adjust the size of the logo to fit nicely on the cover */
+    width: 150px; /* Adjust the size of the logo */
     height: auto;
     border-radius: 10px;
-    position: relative;
-    z-index: 2; /* Ensure logo appears on top of the background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow to make logo pop */
-}
-
-/* Optional: add an overlay to improve text visibility if needed */
-.header-logo-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 18, 32, 0.3); /* Semi-transparent overlay */
-    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Navigation styles */
@@ -159,7 +156,7 @@ nav a:hover {
 .hero {
     background: var(--accent-color);
     color: white;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem; /* Reduced from 4rem 2rem */
     text-align: center;
 }
 
