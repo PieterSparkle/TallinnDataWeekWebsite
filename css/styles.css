@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2C3E50;
-    --accent-color: #3498DB;
+    --primary-color: #001220;
+    --accent-color: #004E90;
     --light-bg: #F7F9FC;
     --linkedin-blue: #0A66C2;
 }
@@ -15,7 +15,7 @@ body {
 
 /* Header styles updated */
 header {
-    background: #0D2240; /* Navy blue color matching the logo */
+    background: #001220; /* Navy blue color matching the logo */
     color: white;
     padding: 2rem 1rem;
     text-align: center;
