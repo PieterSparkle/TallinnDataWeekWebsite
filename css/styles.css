@@ -24,14 +24,38 @@ header {
 .header-logo-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 100%;
+    height: 250px; /* Adjust height to match your Facebook cover image aspect ratio */
+    background-image: url("../images/logo/TDW-facebook-company_cover_v3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .header-logo {
-    width: 100%;
+    width: 150px; /* Adjust the size of the logo to fit nicely on the cover */
     height: auto;
-    border-radius: 10px; /* Optional: if you want rounded corners */
+    border-radius: 10px;
+    position: relative;
+    z-index: 2; /* Ensure logo appears on top of the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow to make logo pop */
+}
+
+/* Optional: add an overlay to improve text visibility if needed */
+.header-logo-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 18, 32, 0.3); /* Semi-transparent overlay */
+    z-index: 1;
 }
 
 /* Navigation styles */
