@@ -14,17 +14,16 @@ body {
     font-size: 18px;
 }
 
-/* Header styles updated */
+/* Header styles */
 header {
     background: url("../images/logo/TDW-facebook-company_cover_v3.jpg") no-repeat center center;
     background-size: cover;
     position: relative;
     color: white;
-    padding: 0; /* Remove padding to allow full coverage */
+    padding: 0;
     text-align: center;
 }
 
-/* Add overlay to ensure text readability */
 header::before {
     content: "";
     position: absolute;
@@ -32,13 +31,16 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 18, 32, 0.5); /* Semi-transparent overlay */
+    background: rgba(0, 18, 32, 0.5);
     z-index: 1;
 }
 
 .container {
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .header-logo-container {
@@ -46,11 +48,11 @@ header::before {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: 3rem 1rem; /* Add padding here instead of on the header */
+    padding: 3rem 1rem;
 }
 
 .header-logo {
-    width: 150px; /* Adjust the size of the logo */
+    width: 150px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -73,21 +75,6 @@ header::before {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-}
-
-.nav-logo img {
-    height: 40px;
-    width: auto;
-    border-radius: 4px;
-}
-
-nav {
-    display: flex;
 }
 
 nav ul {
@@ -115,59 +102,15 @@ nav a:hover {
     color: var(--accent-color);
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav li {
-        margin: 0.5rem 0;
-    }
-}
-
-/* Media queries for responsive navigation with logo */
-@media (max-width: 768px) {
-    .nav-wrapper {
-        flex-direction: column;
-        padding: 0.5rem 1rem;
-    }
-    
-    .nav-logo {
-        margin-bottom: 0.5rem;
-    }
-    
-    nav ul {
-        justify-content: center;
-    }
-}
-
-/* Logo styles */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 1.5rem auto;
-    max-width: 500px;
-}
-
-.logo {
-    width: 100%;
-    height: auto;
-}
-
+/* Hero section */
 .hero {
     background: var(--accent-color);
     color: white;
-    padding: 2rem 2rem; /* Reduced from 4rem 2rem */
+    padding: 2rem 2rem;
     text-align: center;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
+/* Section styles */
 section {
     padding: 4rem 1rem;
 }
@@ -187,6 +130,7 @@ section p {
     margin-bottom: 1.5rem;
 }
 
+/* Team section */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -228,39 +172,56 @@ section p {
     color: var(--linkedin-blue);
 }
 
-.linkedin-button {
-    display: inline-block;
-    background: var(--linkedin-blue);
-    color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 1rem;
-    transition: background-color 0.3s;
-}
-
-.linkedin-button:hover {
-    background: #004182;
-}
-
-.coming-soon {
-    background: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    padding: 2rem;
+/* Schedule table */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
     margin: 2rem 0;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.venue-info {
-    background: #fff;
-    border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin: 2rem 0;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-/* Modern Pricing Grid Styles */
+.schedule-table th, .schedule-table td {
+    padding: 1.25rem;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    font-size: 1.125rem;
+}
+
+.schedule-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.schedule-table tr:hover {
+    background-color: #f1f4f7;
+}
+
+.focus-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: #2d3748;
+    text-align: center;
+}
+
+.focus-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 1.5;
+    color: #4a5568;
+    flex-shrink: 0;
+}
+
+/* Pricing cards */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -336,6 +297,13 @@ section p {
     box-shadow: 0 8px 32px rgba(218, 165, 32, 0.15);
     border: none;
     position: relative;
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 40px rgba(218, 165, 32, 0.2);
 }
 
 .pricing-card.featured::after {
@@ -449,383 +417,7 @@ section p {
     transform: translateY(-2px);
 }
 
-@media (max-width: 992px) {
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .pricing-card.featured {
-        grid-column: span 2;
-    }
-}
-
-@media (max-width: 768px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .pricing-card.featured {
-        grid-column: span 1;
-    }
-    
-    .pricing-card {
-        padding: 1.5rem;
-    }
-    
-    .pricing-header h3 {
-        font-size: 1.75rem;
-    }
-    
-    .price {
-        font-size: 2.25rem;
-    }
-    
-    .feature-item {
-        font-size: 1rem;
-        padding: 1rem 0;
-    }
-}
-
-/* Remove old sponsor styles */
-.sponsor-table-container,
-.sponsor-table,
-.sponsor-grid,
-.sponsor-card,
-.sponsor-badge,
-.sponsor-price,
-.sponsor-benefits,
-.benefit-check,
-.sponsor-cta {
-    display: none;
-}
-
-/* Contact form styles */
-.contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    margin: 2rem 0;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-size: 1.125rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1.125rem;
-}
-
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.submit-button {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background: #2980b9;
-}
-
-.contact-info {
-    margin-top: 2rem;
-}
-
-.contact-info h3 {
-    margin-bottom: 1rem;
-}
-
-.contact-info p {
-    margin: 0.5rem 0;
-}
-
-.contact-method {
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.contact-icon {
-    margin-right: 1rem;
-    color: var(--accent-color);
-}
-
-footer {
-    background: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-/* Schedule table styles */
-.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.schedule-table th, .schedule-table td {
-    padding: 1.25rem;
-    text-align: center;
-    border: 1px solid #e0e0e0;
-    font-size: 1.125rem;
-}
-
-.schedule-table th {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-}
-
-.schedule-table tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-.schedule-table tr:hover {
-    background-color: #f1f4f7;
-}
-
-.focus-area {
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
-@media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .schedule-table {
-        font-size: 0.9rem;
-    }
-    
-    .schedule-table th, .schedule-table td {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* New Sponsor Section Styles */
-.section-intro {
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    text-align: center;
-    font-size: 1.25rem;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-}
-
-.sponsor-heading {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-}
-
-.sponsor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.sponsor-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.sponsor-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.sponsor-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5rem 1rem;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.sponsor-event .sponsor-badge {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-}
-
-.sponsor-gold .sponsor-badge {
-    background: linear-gradient(135deg, #f5c836 0%, #e7a600 100%);
-}
-
-.sponsor-silver .sponsor-badge {
-    background: linear-gradient(135deg, #b8c6db 0%, #919eab 100%);
-}
-
-.sponsor-bronze .sponsor-badge {
-    background: linear-gradient(135deg, #cd7f32 0%, #a05a2c 100%);
-}
-
-.sponsor-card h4 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent-color);
-}
-
-.sponsor-price {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
-.sponsor-benefits {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-}
-
-.sponsor-benefits li {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    align-items: center;
-}
-
-.benefit-check {
-    color: #2ecc71;
-    font-weight: bold;
-    margin-right: 0.75rem;
-    font-size: 1.2rem;
-}
-
-.sponsor-cta {
-    display: inline-block;
-    background: var(--accent-color);
-    color: white;
-    text-align: center;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s;
-    width: 100%;
-}
-
-.sponsor-cta:hover {
-    background: #2980b9;
-}
-
-.contact-sponsor {
-    background: var(--light-bg);
-    border-radius: 10px;
-    padding: 3rem 2rem;
-    margin: 3rem 0;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.contact-sponsor h3 {
-    margin-top: 0;
-}
-
-@media (max-width: 992px) {
-    .sponsor-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .sponsor-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* End of new sponsor styles */
-
-/* Text decoration styles */
-.underline {
-    text-decoration: underline;
-}
-
-.underline-accent {
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 2px;
-}
-
-.underline-fancy {
-    background: linear-gradient(to bottom, transparent 90%, var(--accent-color) 90%);
-    display: inline;
-}
-
-.underline-dotted {
-    border-bottom: 2px dotted var(--accent-color);
-    padding-bottom: 2px;
-}
-
-.underline-wavy {
-    text-decoration: underline wavy var(--accent-color);
-}
-
-/* Special options list styling */
-.special-options-list {
-    list-style: disc;
-    margin: 0;
-    flex: 1;
-}
-
-.special-options-list li {
-    padding: 0.25rem 0;
-    color: var(--primary-color);
-}
-
-.feature-item .special-options-list {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* FAQ Section Styles */
+/* FAQ Section */
 .faq-section {
     max-width: 800px;
     margin: 4rem auto;
@@ -903,21 +495,141 @@ footer {
     transform: rotate(180deg);
 }
 
+/* Contact section */
+.contact-sponsor {
+    background: var(--light-bg);
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-sponsor h3 {
+    margin-top: 0;
+}
+
+.email-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    transition: color 0.3s;
+}
+
+.email-link:hover {
+    color: var(--accent-color);
+}
+
+/* Venue section */
+.venue-info {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    margin: 2rem 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+.footer-links svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Media queries */
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .faq-section {
-        margin: 3rem auto;
+    .pricing-grid {
+        grid-template-columns: 1fr;
     }
     
-    .faq-question {
+    .pricing-card {
+        padding: 1.5rem;
+    }
+    
+    .pricing-header h3 {
+        font-size: 1.75rem;
+    }
+    
+    .price {
+        font-size: 2.25rem;
+    }
+    
+    .feature-item {
         font-size: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .schedule-table {
+        font-size: 0.9rem;
+    }
+    
+    .schedule-table th, .schedule-table td {
         padding: 1rem;
     }
     
-    .faq-answer {
-        padding: 0 1rem;
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
     }
     
-    .faq-answer p {
-        padding-bottom: 1rem;
+    .focus-area {
+        font-size: 0.875rem;
+    }
+    
+    .focus-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .team-grid {
+        grid-template-columns: 1fr;
     }
 }
