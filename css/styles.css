@@ -473,22 +473,25 @@ section p {
 }
 
 .faq-answer {
+    padding: 1rem;
+    color: #4a5568;
+    display: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    padding: 0 1.25rem;
 }
 
-.faq-answer p {
-    margin: 0;
-    padding-bottom: 1.25rem;
-    color: #666;
-    line-height: 1.6;
+.faq-answer img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 0.5rem;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px;
-    transition: max-height 0.5s ease-in;
+    display: block;
+    max-height: 2000px;
 }
 
 .faq-item.active .faq-icon {
