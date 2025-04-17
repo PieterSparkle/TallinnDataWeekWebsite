@@ -106,18 +106,75 @@ nav a:hover {
 
 /* Hero/slogan section */
 .hero {
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 1rem 0 3rem;
+}
+
+.hero-slogan-container {
+    margin: 0 auto;
+    text-align: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    gap: 1.5rem;
 }
 
 .hero-slogan-container img {
     width: 100%;
-    height: 100%; 
-    object-fit: cover; 
+    height: auto;
+    margin: 0 auto;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    background: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Update existing btn-secondary styles to match */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border: 2px solid var(--accent-color);
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.btn-secondary:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 /* Section styles */
@@ -639,10 +696,210 @@ section p {
         width: 1rem;
         height: 1rem;
     }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+    
+    .hero {
+        padding: 1rem 0 2rem;
+    }
+    
+    .hero-slogan-container {
+        gap: 1rem;
+    }
+    
+    .toast {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 576px) {
     .team-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Modal Styles */
+.modal.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    animation: fade 0.2s ease-out;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 380px;
+    width: 92%;
+    background: #fff;
+    border-radius: 6px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: scale 0.2s ease-out;
+}
+
+.sm-form {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.sm-form input[type=email] {
+    flex: 1 1 220px;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.sm-form button[type=submit] {
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    background: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+}
+
+.sm-form button[type=submit]:hover {
+    opacity: 0.9;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-note {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 0.7rem;
+}
+
+.modal-lead {
+    margin: 0.4rem 0 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -10000px;
+}
+
+@keyframes fade {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes scale {
+    from { transform: scale(0.92) }
+    to { transform: scale(1) }
+}
+
+/* Modal state transitions */
+.modal-state {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-state.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.modal-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+}
+
+.modal-icon.success {
+    color: #10B981;
+    stroke-width: 2;
+}
+
+.modal-icon.error {
+    color: #EF4444;
+    stroke-width: 2;
+}
+
+#modal-success h3,
+#modal-error h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+#modal-success p,
+#modal-error p {
+    margin: 0.5rem 0 1.5rem;
+    color: #6B7280;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #10B981;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.error {
+    background: #EF4444;
+}
+
+.toast-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    font-weight: 500;
+    font-size: 0.95rem;
 }
