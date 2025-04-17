@@ -31,7 +31,3 @@ comments Li:
 * venue could have a picture of the T1 venue on the side.
 * under team: Koobass -> Koobas, and Kirstel -> Kristel; done
 * the background could be some other color than completely white - maybe light blue, some hint of theme color?
-
-
-
-
