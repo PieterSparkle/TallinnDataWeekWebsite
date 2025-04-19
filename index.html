@@ -594,9 +594,7 @@
         <div class="modal-content">
             <button class="modal-close" aria-label="Close updates form" onclick="closeUpdatesModal()">✕</button>
             <h3 id="updates-title">Stay in the loop</h3>
-            <p class="modal-lead">
-                Agenda drops, speaker reveals &amp; next ticket wave straight to your inbox.
-            </p>
+            <p class="modal-lead">We'll let you know when the timing makes more sense.</p>
             <form action="https://tallinndataweek.sendsmaily.net/api/opt-in/" method="POST" class="sm-form" autocomplete="off" >
                 <label class="visually-hidden" for="u-email">Email</label>
                 <input id="u-email" name="email" type="email" placeholder="you@example.com" required>
@@ -663,7 +661,7 @@
             const code = urlParams.get('code');
             
             if (signupStatus === 'success') {
-                showToast(message || "Thanks for signing up! We'll be in touch soon.");
+                showToast("You're all set — we've sent you a short welcome email.");
                 // Clean up the URL
                 window.history.replaceState({}, document.title, window.location.pathname);
             } else if (signupStatus === 'error') {
