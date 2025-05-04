@@ -253,7 +253,6 @@ nav {
 .hero {
     width: 100%;
     background-color: var(--primary-color);
-    padding: 1rem 0 3rem;
 }
 
 .hero-slogan-container {
